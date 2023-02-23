@@ -58,6 +58,27 @@ namespace AutoKuca.Controllers
             }
             return NotFound();
         }
-        
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetAllRelatedCars([FromRoute] int id) {
+            var brand = await ctx.Brands.FindAsync(id);
+            if (brand != null)
+            {
+                var query =await ctx.Cars.Where(c => c.BrandId == brand.BrandId)
+                                    .OrderByDescending(c => c.CreatedAt)
+                                    .Select(c => new
+                                    {
+                                        c.CarId,
+                                        c.Brand.BrandName,
+                                        c.Model,
+                                        c.Price,
+                                        c.Year,
+                                        c.FuelType.FuelTypeName,
+                                        c.NumberOfKilometers
+                                    }).ToListAsync();
+                return Ok(query);
+            }   
+            return NotFound();
+        }
     }
 }
