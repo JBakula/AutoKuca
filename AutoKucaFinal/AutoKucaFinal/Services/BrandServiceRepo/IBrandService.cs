@@ -6,5 +6,7 @@ namespace AutoKucaFinal.Services.BrandService
     {
         ICollection<Brand> GetBrands();
         Brand GetBrandById(int id);
+        bool BrandExist(int id);
+        ICollection<Model> GetModelsByBrandId(int id);
     }
 }

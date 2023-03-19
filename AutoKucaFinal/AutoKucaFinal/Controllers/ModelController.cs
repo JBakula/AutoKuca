@@ -16,9 +16,13 @@ namespace AutoKucaFinal.Controllers
         }
         [HttpGet]
         [Route("{id:int}")]
-        public IActionResult GetModelsByBrand([FromRoute] int id)
+        public IActionResult GetModelById([FromRoute] int id)
         {
-            var models = _modelService.GetModelsByBrandId(id);
+            if (!_modelService.ModelExist(id))
+            {
+                return NotFound();
+            }
+            var models = _modelService.GetModelsById(id);
             return Ok(models);
         }
     }

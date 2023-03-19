@@ -4,6 +4,8 @@ namespace AutoKucaFinal.Services.ModelServiceRepo
 {
     public interface IModelService
     {
-        ICollection<Model> GetModelsByBrandId(int id);
+        ICollection<Model> GetModelsById(int id);
+        bool ModelExist(int id);
+
     }
 }

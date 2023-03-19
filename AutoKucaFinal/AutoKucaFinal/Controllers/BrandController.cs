@@ -27,8 +27,24 @@ namespace AutoKucaFinal.Controllers
         [Route("{id:int}")]
         public IActionResult GetSingleBrand([FromRoute]int id)
         {
+            if (!_brandService.BrandExist(id))
+            {
+                return NotFound();
+            }
             var brand = _brandService.GetBrandById(id);
             return Ok(brand);
+        }
+        [HttpGet]
+        [Route("/models/{id:int}")]
+        public IActionResult GetModelsByBrandId([FromRoute] int id)
+        {
+            if (!_brandService.BrandExist(id))
+            {
+                return NotFound();
+            }
+
+            var models = _brandService.GetModelsByBrandId(id);
+            return Ok(models);
         }
     }
 }

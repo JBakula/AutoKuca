@@ -18,6 +18,17 @@ namespace AutoKucaFinal.Services.BrandServiceRepo
         public Brand GetBrandById(int id)
         {
             return _context.Brands.Where(b => b.BrandId == id).FirstOrDefault();
+            
+        }
+        public ICollection<Model> GetModelsByBrandId(int id)
+        {
+           
+            return _context.Models.Where(m => m.BrandId == id).ToList();
+            
+        }
+        public bool BrandExist(int id)
+        {
+            return _context.Brands.Any(b => b.BrandId == id);
         }
     }
 }

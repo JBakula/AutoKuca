@@ -65,3 +65,5 @@ C:\Users\DT User\source\repos\AutoKucaFinal\AutoKucaFinal\obj\Debug\net6.0\refin
 C:\Users\DT User\source\repos\AutoKucaFinal\AutoKucaFinal\obj\Debug\net6.0\AutoKucaFinal.pdb
 C:\Users\DT User\source\repos\AutoKucaFinal\AutoKucaFinal\obj\Debug\net6.0\AutoKucaFinal.genruntimeconfig.cache
 C:\Users\DT User\source\repos\AutoKucaFinal\AutoKucaFinal\obj\Debug\net6.0\ref\AutoKucaFinal.dll
+C:\Users\DT User\source\repos\AutoKucaFinal\AutoKucaFinal\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\DT User\source\repos\AutoKucaFinal\AutoKucaFinal\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
