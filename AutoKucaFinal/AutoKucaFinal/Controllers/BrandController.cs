@@ -3,6 +3,8 @@ using AutoKucaFinal.Services.BrandService;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using AutoKucaFinal.DTOs;
 
 namespace AutoKucaFinal.Controllers
 {
@@ -11,40 +13,80 @@ namespace AutoKucaFinal.Controllers
     public class BrandController : ControllerBase
     {
         private readonly IBrandService _brandService;
-        public BrandController(IBrandService brandService) 
+        private readonly IMapper _mapper;
+        public BrandController(IBrandService brandService, IMapper mapper) 
         {
             _brandService = brandService;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public IActionResult GetBrands()
         {
-            var brands = _brandService.GetBrands();
+            var brands = _mapper.Map<List<BrandResponse>>(_brandService.GetBrands());
             
             return Ok(brands);
         }
-        [HttpGet]
-        [Route("{id:int}")]
-        public IActionResult GetSingleBrand([FromRoute]int id)
+
+        [HttpPost]
+        public IActionResult AddBrand(BrandRequest brandRequest)
         {
-            if (!_brandService.BrandExist(id))
+            if (brandRequest.BrandName == "")
             {
-                return NotFound();
-            }
-            var brand = _brandService.GetBrandById(id);
-            return Ok(brand);
-        }
-        [HttpGet]
-        [Route("/models/{id:int}")]
-        public IActionResult GetModelsByBrandId([FromRoute] int id)
-        {
-            if (!_brandService.BrandExist(id))
-            {
-                return NotFound();
+                return BadRequest();
             }
 
-            var models = _brandService.GetModelsByBrandId(id);
-            return Ok(models);
+            if (!_brandService.AddBrand(brandRequest))
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return Ok("Successfully created!!");
+            }
+            
+        }
+        [HttpPut]
+        [Route("{id:int}")]
+        public IActionResult UpdateBrand(BrandRequest brandRequest, [FromRoute] int id)
+        {
+            if (brandRequest.BrandName == "")
+            {
+                return BadRequest();
+            }
+            if (!_brandService.BrandExist(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                if (!_brandService.UpdateBrand(brandRequest,id))
+                {
+                    return StatusCode(500);
+                }
+                else
+                {
+                    return Ok("Successfully updated!!");
+                }
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult DeleteBrand(int id)
+        {
+            if (!_brandService.BrandExist(id))
+            {
+                return NotFound();
+            }
+            if (!_brandService.DeleteBrand(id))
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return Ok("Successfully deleted");
+            }
         }
     }
 }

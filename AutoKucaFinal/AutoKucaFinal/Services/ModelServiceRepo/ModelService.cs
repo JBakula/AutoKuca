@@ -9,13 +9,14 @@ namespace AutoKucaFinal.Services.ModelServiceRepo
         {
             _context = context;
         }
-        public ICollection<Model> GetModelsById(int id)
+        
+        public ICollection<Model> GetModelsByBrandId(int id)
         {
-            return _context.Models.Where(m => m.ModelId == id).ToList();
+            return _context.Models.Where(m=>m.BrandId == id).OrderBy(m=>m.ModelName).ToList();
         }
-        public bool ModelExist(int id)
+        public bool isBrandIdExist(int id)
         {
-            return _context.Models.Any(m => m.ModelId == id);
+            return _context.Brands.Any(m => m.BrandId == id);   
         }
     }
 }

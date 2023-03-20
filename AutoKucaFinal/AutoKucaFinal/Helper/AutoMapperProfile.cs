@@ -11,6 +11,8 @@ namespace AutoKucaFinal.Helper
             CreateMap<Doors, DoorsResponse>();
             CreateMap<TransmissionType, TransmissionTypeResponse>();
             CreateMap<Color, ColorResponse>();
+            CreateMap<Brand, BrandResponse>();
+            CreateMap<Model,ModelsResponse>();
         }
     }
 }

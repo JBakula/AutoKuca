@@ -1,5 +1,7 @@
 ﻿
+using AutoKucaFinal.DTOs;
 using AutoKucaFinal.Services.ModelServiceRepo;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,20 +12,23 @@ namespace AutoKucaFinal.Controllers
     public class ModelController : ControllerBase
     {
         private readonly IModelService _modelService;
-        public ModelController(IModelService modelService)
+        private readonly IMapper _mapper;
+        public ModelController(IModelService modelService,IMapper mapper)
         {
+            _mapper = mapper;
             _modelService = modelService;
         }
         [HttpGet]
         [Route("{id:int}")]
-        public IActionResult GetModelById([FromRoute] int id)
+        public IActionResult GetModelsByBrandId([FromRoute] int id)
         {
-            if (!_modelService.ModelExist(id))
+            if (!_modelService.isBrandIdExist(id))
             {
                 return NotFound();
             }
-            var models = _modelService.GetModelsById(id);
+            var models = _mapper.Map<List<ModelsResponse>>(_modelService.GetModelsByBrandId(id));
             return Ok(models);
         }
+        
     }
 }
