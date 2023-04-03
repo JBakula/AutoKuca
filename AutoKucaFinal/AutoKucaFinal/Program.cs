@@ -1,6 +1,7 @@
 using AutoKucaFinal.Models;
 using AutoKucaFinal.Services.BrandService;
 using AutoKucaFinal.Services.BrandServiceRepo;
+using AutoKucaFinal.Services.CarRepo;
 using AutoKucaFinal.Services.ColorServiceRepo;
 using AutoKucaFinal.Services.DoorsServiceRepo;
 using AutoKucaFinal.Services.FuelTypeRepo;
@@ -19,6 +20,7 @@ builder.Services.AddScoped<IFuelTypeService, FuelTypeService>();
 builder.Services.AddScoped<IDoorsService, DoorsService>();
 builder.Services.AddScoped<ITransmissionTypeService, TransmissionTypeService>();
 builder.Services.AddScoped<IColorService, ColorService>();
+builder.Services.AddScoped<ICarService, CarService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

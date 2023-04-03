@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\05_na_crte_pozadina.png",
+      "PackagePath": "staticwebassets\\images\\05_na_crte_pozadina.png"
+    },
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\2vmobm.jpg",
+      "PackagePath": "staticwebassets\\images\\2vmobm.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\52657714_2242547559142025_6151801822655807488_n.jpg",
+      "PackagePath": "staticwebassets\\images\\52657714_2242547559142025_6151801822655807488_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\52688625_2462090507154565_1399077504953614336_n.jpg",
+      "PackagePath": "staticwebassets\\images\\52688625_2462090507154565_1399077504953614336_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\52724346_10215824513660638_2831895637329444864_n.jpg",
+      "PackagePath": "staticwebassets\\images\\52724346_10215824513660638_2831895637329444864_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\61624656_2303453366364424_745114192347922432_n.jpg",
+      "PackagePath": "staticwebassets\\images\\61624656_2303453366364424_745114192347922432_n.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DT User\\source\\repos\\AutoKucaFinal\\AutoKucaFinal\\wwwroot\\images\\647821-mark-noble-whu-tweet.jpg",
+      "PackagePath": "staticwebassets\\images\\647821-mark-noble-whu-tweet.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.AutoKucaFinal.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.AutoKucaFinal.props",
+      "PackagePath": "build\\AutoKucaFinal.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.AutoKucaFinal.props",
+      "PackagePath": "buildMultiTargeting\\AutoKucaFinal.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.AutoKucaFinal.props",
+      "PackagePath": "buildTransitive\\AutoKucaFinal.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

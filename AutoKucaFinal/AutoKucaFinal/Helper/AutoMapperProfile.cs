@@ -13,6 +13,7 @@ namespace AutoKucaFinal.Helper
             CreateMap<Color, ColorResponse>();
             CreateMap<Brand, BrandResponse>();
             CreateMap<Model,ModelsResponse>();
+            CreateMap<Car,CarResponse>();
         }
     }
 }

@@ -29,6 +29,61 @@ namespace AutoKucaFinal.Controllers
             var models = _mapper.Map<List<ModelsResponse>>(_modelService.GetModelsByBrandId(id));
             return Ok(models);
         }
+
+        [HttpPost]
+        public IActionResult CreateNewModel(ModelRequest modelRequest)
+        {
+            if(modelRequest.ModelName == "" || modelRequest.BrandId == 0)
+            {
+                return BadRequest();
+            }
+            if (!_modelService.AddModel(modelRequest))
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return Ok("Successfully added!!");
+            }
+        }
+        [HttpPut]
+        [Route("{id:int}")]
+        public IActionResult UpdateModel(ModelRequest modelRequest,[FromRoute] int id)
+        {
+            if(modelRequest.ModelName == "" || modelRequest.BrandId == 0)
+            {
+                return BadRequest();
+            }
+            if (!_modelService.isModelIdExist(id))
+            {
+                return NotFound();
+            }
+            if (!_modelService.UpdateModel(modelRequest, id))
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return Ok("Successfully updated");
+            }
+        }
+        [HttpDelete]
+        [Route("{id:int}")]
+        public IActionResult DeleteModel([FromRoute] int id)
+        {
+            if (!_modelService.isModelIdExist(id))
+            {
+                return NotFound();
+            }
+            if (!_modelService.DeleteModel(id))
+            {
+                return StatusCode(500);
+            }
+            else
+            {
+                return Ok("Successfully deleted");
+            }
+        }
         
     }
 }
